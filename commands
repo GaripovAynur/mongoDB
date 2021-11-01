@@ -1,0 +1,27 @@
+mongo --version #
+
+
+mongo --host localhost:27017
+
+# Создать БД itproger с колекции
+use itproger
+db.createCollection("users")
+db.createCollection("articles")
+
+# Удалить колекцию articles
+db.articles.drop()
+
+
+
+#Как вывести список всех пользователей в оболочке mongo
+db.getUsers()
+или
+show users
+
+show dbs № Показать все базы
+show collections № Показать коллекции
+db.collectionName.find() № Содержимое этой коллекции
+
+# Создать пользователя
+use admin
+db.createUser({ user: "mongoadmin" , pwd: "mongoadmin", roles: ["userAdminAnyDatabase", "dbAdminAnyDatabase", "readWriteAnyDatabase"]})
