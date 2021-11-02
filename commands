@@ -8,6 +8,39 @@ use itproger
 db.createCollection("users")
 db.createCollection("articles")
 
+
+# Заполнить колекцию
+
+# insertOne -можно добавить только одну запись
+db.users.insertOne(
+  { 
+  "name":"john", 
+  "age":23, 
+  "hasCar":true, 
+  "favColors":["Зеленый", "Красный"], 
+  "child": {"name": "Jack", "age":5} })
+
+insertMany # Добавлять несколько записей
+db.users.insertMany([
+  { 
+  "name":"john", 
+  "age":23, 
+  "hasCar":true, 
+  "favColors":["Зеленый", "Красный"], 
+  "child": {"name": "Jack", "age":5} },
+  {
+  "name":"Lee", 
+  "age":22, 
+  "hasCar":true, 
+  "favColors":["Зеленый", "Красный"], 
+  "child": {"name": "chw", "age":2}
+  }
+  ])
+
+
+
+
+
 # Удалить колекцию articles
 db.articles.drop()
 
@@ -25,3 +58,4 @@ db.collectionName.find() № Содержимое этой коллекции
 # Создать пользователя
 use admin
 db.createUser({ user: "mongoadmin" , pwd: "mongoadmin", roles: ["userAdminAnyDatabase", "dbAdminAnyDatabase", "readWriteAnyDatabase"]})
+
